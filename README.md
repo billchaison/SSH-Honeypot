@@ -3,8 +3,7 @@ Simple SSH server to capture credentials
 
 Useful for intercepting SSH credentials from vulnerability scanners.
 
-**Prerequisites
-
+**Prerequisites**<br />
 ```
 apt-get install gcc
 apt-get install cmake
@@ -12,8 +11,7 @@ apt-get install libssl-dev
 apt-get install libssh-dev
 ```
 
-Compile the following source code "ssh-faked.c" using `gcc -o ssh-faked ssh-faked.c -lssh`
-
+Compile the following source code "ssh-faked.c" using `gcc -o ssh-faked ssh-faked.c -lssh`<br />
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -150,13 +148,11 @@ void Usage()
 }
 ```
 
-Create SSH keys.
-
+Create SSH keys.<br />
 ```
 ssh-keygen -t rsa -b 2048 -f ./id_rsa
 ssh-keygen -t dsa -b 1024 -f ./id_dsa
 ```
 
-Run the SSH honeypot server.
-
+Run the SSH honeypot server.<br />
 `./ssh-faked 10.192.103.22 22 ./id_dsa ./id_rsa`
