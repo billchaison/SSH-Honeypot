@@ -154,5 +154,9 @@ ssh-keygen -t rsa -b 2048 -f ./id_rsa
 ssh-keygen -t dsa -b 1024 -f ./id_dsa
 ```
 
-Run the SSH honeypot server.<br />
+Run the SSH honeypot server (one shot).<br />
 `./ssh-faked 10.192.103.22 22 ./id_dsa ./id_rsa`
+
+Run the SSH honeypot server (continuous loop).<br />
+`(while true; do ./ssh-faked 10.192.103.22 22 ./id_dsa ./id_rsa; done) | tee ~/ssh-faked.log`
+
