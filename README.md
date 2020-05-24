@@ -124,16 +124,17 @@ int main(int argc, char **argv)
 		ssh_message_reply_default(message);
 		ssh_message_free(message);
 	}
-	ssh_message_free(message);
-	ssh_disconnect(session);
-	ssh_free(session);
-	ssh_bind_free(sshbind);
 	tn = time(NULL);
 	tmn = *localtime(&tn);
 	printf("Time: %d-%02d-%02d %02d:%02d:%02d\n", tmn.tm_year + 1900, tmn.tm_mon + 1, tmn.tm_mday, tmn.tm_hour, tmn.tm_min, tmn.tm_sec);
 	printf("SSH Client IP = %s\n", cliip);
+	printf("SSH Client Type = %s\n", ssh_get_clientbanner(session));
 	printf("Username Supplied (inside brackets) = [%s]\n", user);
 	printf("Password Supplied (inside brackets) = [%s]\n\n", pass);
+	ssh_message_free(message);
+	ssh_disconnect(session);
+	ssh_free(session);
+	ssh_bind_free(sshbind);
 	return 0;
 }
 
